@@ -3,8 +3,7 @@ kind: Pod
 metadata:
   labels:
     run: kuard
-    name: kuard
-    internalVersion: 0.0.2
+    internalVersion: "0.0.2"  # Çift tırnak içinde bir sürüm numarası
   name: kuard
 spec:
   containers:
@@ -16,4 +15,5 @@ spec:
       name: http
       protocol: TCP
     resources: {}
-  dnsPolicy: ClusterFirst  restartPolicy: Never
+  dnsPolicy: ClusterFirst
+  restartPolicy: Never  # Yeni satır eklenmiş ve düzeltilmiş indentasyon
