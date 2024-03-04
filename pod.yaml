@@ -3,8 +3,11 @@ kind: Pod
 metadata:
   labels:
     run: kuard
-    internalVersion: "0.0.2"  # Çift tırnak içinde bir sürüm numarası
+    internalVersion: "0.0.2"
   name: kuard
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"v1","kind":"Pod","metadata":{"annotations":{"kubectl.kubernetes.io/last-applied-configuration":"..."},"labels":{"internalVersion":"0.0.2","run":"kuard"},"name":"kuard"},"spec":{"containers":[{"image":"gcr.io/kuar-demo/kuard-amd64:1","imagePullPolicy":"IfNotPresent","name":"kuard","ports":[{"containerPort":8080,"name":"http","protocol":"TCP"}],"resources":{}}],"dnsPolicy":"ClusterFirst","restartPolicy":"Never"}}
 spec:
   containers:
   - image: gcr.io/kuar-demo/kuard-amd64:1
@@ -16,4 +19,4 @@ spec:
       protocol: TCP
     resources: {}
   dnsPolicy: ClusterFirst
-  restartPolicy: Never  # Yeni satır eklenmiş ve düzeltilmiş indentasyon
+  restartPolicy: Never
